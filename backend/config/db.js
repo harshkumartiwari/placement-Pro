@@ -14,7 +14,6 @@ const connectDB = async () => {
     console.log(`✅ MongoDB Connected Successfully!`);
     console.log(`📁 Host: ${conn.connection.host}`);
     console.log(`🗄️ Database Name: ${conn.connection.name}`);
-    console.log(`🔌 Compass URL: ${uri}`);
     console.log(`=========================================`);
   } catch (error) {
     isConnected = false;
@@ -23,7 +22,7 @@ const connectDB = async () => {
     console.error(`Error details: ${error.message}`);
     console.error(`Troubleshooting tips:`);
     console.error(`1. Check if MongoDB Service is running: in PowerShell run 'Get-Service MongoDB' or 'net start MongoDB'`);
-    console.error(`2. If using MongoDB Compass, ensure it can connect to: ${uri}`);
+    console.error(`2. If using MongoDB Atlas, verify your IP is allowed in Network Access.`);
     console.error(`3. Verify your MONGODB_URI in backend/.env`);
     console.error(`=========================================`);
   }
