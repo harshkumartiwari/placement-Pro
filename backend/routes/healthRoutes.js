@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
     database: {
       status: dbStatus.stateName,
       connected: dbStatus.isConnected,
+      stateCode: dbStatus.stateCode,
       name: dbStatus.databaseName,
       host: dbStatus.host,
       port: dbStatus.port,

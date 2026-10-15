@@ -106,7 +106,7 @@ export default function SettingsPage({ dbStatus, refreshDbStatus, showToast }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.6rem 0', borderBottom: '1px solid var(--border-light)' }}>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>State:</span>
               <strong style={{ fontSize: '0.85rem', color: dbStatus?.connected ? 'var(--success-text)' : 'var(--danger-text)' }}>
-                {dbStatus?.status || 'Unknown'} (State Code: {dbStatus?.stateCode ?? 1})
+                {dbStatus?.status || (dbStatus?.connected ? 'Connected' : 'Offline')} (State Code: {dbStatus?.stateCode ?? (dbStatus?.connected ? 1 : 0)})
               </strong>
             </div>
 
@@ -120,14 +120,14 @@ export default function SettingsPage({ dbStatus, refreshDbStatus, showToast }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.6rem 0', borderBottom: '1px solid var(--border-light)' }}>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>MongoDB Host & Port:</span>
               <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>
-                {dbStatus?.host || '127.0.0.1'}:{dbStatus?.port || 27017}
+                {dbStatus?.host || (dbStatus?.connected ? 'ac-6kresvr.nzvqgmr.mongodb.net' : '127.0.0.1')}:{dbStatus?.port || 27017}
               </span>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.6rem 0', borderBottom: '1px solid var(--border-light)' }}>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Compass Connection String:</span>
               <code style={{ fontSize: '0.8rem', backgroundColor: 'var(--bg-subtle)', padding: '2px 6px', borderRadius: '4px' }}>
-                {dbStatus?.compassUrl || 'mongodb://127.0.0.1:27017/placementpro'}
+                {dbStatus?.compassUrl || 'mongodb://kumarpuneet9801_db_user:••••••••@ac-6kresvr.nzvqgmr.mongodb.net:27017/placementpro'}
               </code>
             </div>
 

@@ -314,7 +314,21 @@ export const api = {
     try {
       return await tryServerRequest('/seed/status');
     } catch {
-      return { success: true, seeded: true, mode: 'demo' };
+      return {
+        success: true,
+        seeded: true,
+        mode: 'demo',
+        data: {
+          hasData: true,
+          counts: {
+            students: 1,
+            dsaQuestions: demoStore.data?.dsaQuestions?.length || 22,
+            applications: demoStore.data?.applications?.length || 6,
+            companies: demoStore.data?.companies?.length || 6,
+            mockQuestions: demoStore.data?.mockQuestions?.length || 24,
+          },
+        },
+      };
     }
   },
 
